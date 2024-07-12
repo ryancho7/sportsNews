@@ -12,6 +12,8 @@ const Demo = () => {
     const [getSummary, { error, isFetching }] = useLazyGetSummaryQuery();
 
     useEffect(() => {
+        // ensure that after a refresh, sites will be removed
+        localStorage.removeItem('articles');
         const articlesFromLocalStorage = JSON.parse(
             localStorage.getItem('articles')
         )
